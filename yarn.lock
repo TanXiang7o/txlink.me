@@ -2181,6 +2181,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@headlessui/tailwindcss@npm:^0.2.1":
+  version: 0.2.1
+  resolution: "@headlessui/tailwindcss@npm:0.2.1"
+  peerDependencies:
+    tailwindcss: ^3.0
+  checksum: 5cc9b30af4348dd133ce7fe6b7bdae9bec681796480cbd91cc8d20cd8a0841169ac741ec04ded4235c520199d79775ab439489d869b2785cc58a94002193a6f0
+  languageName: node
+  linkType: hard
+
+"@heroicons/react@npm:^2.1.5":
+  version: 2.1.5
+  resolution: "@heroicons/react@npm:2.1.5"
+  peerDependencies:
+    react: ">= 16"
+  checksum: 1c793f96443580416eccdb60d72c19f640ce068a95f8568bfe8176c6e8ef1318f3d4d4caa8656b571002fe3a7f2d989d6812429fd6bca4bdff641e4b8998c0cd
+  languageName: node
+  linkType: hard
+
 "@humanwhocodes/config-array@npm:^0.11.14":
   version: 0.11.14
   resolution: "@humanwhocodes/config-array@npm:0.11.14"
@@ -3138,21 +3156,21 @@ __metadata:
   linkType: hard
 
 "@tanstack/react-virtual@npm:^3.0.0-beta.60":
-  version: 3.9.0
-  resolution: "@tanstack/react-virtual@npm:3.9.0"
+  version: 3.8.6
+  resolution: "@tanstack/react-virtual@npm:3.8.6"
   dependencies:
-    "@tanstack/virtual-core": 3.9.0
+    "@tanstack/virtual-core": 3.8.6
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-  checksum: 36f32f86dcd1c914df3bfcc2836d6e291688e44745f076089ce059a7a2776280a62612686eecfb11fdd11ac3c23e7a42ee2178b94bcda549215f7d2674b37350
+  checksum: fe630ead037945c9c0f7d6c8c30880a0d3ac0464862dccbb6f7adc5594f35bacf81ce460167e04c21c00792af14687958a4370c6ed74f4b6e4f6037d86e029e0
   languageName: node
   linkType: hard
 
-"@tanstack/virtual-core@npm:3.9.0":
-  version: 3.9.0
-  resolution: "@tanstack/virtual-core@npm:3.9.0"
-  checksum: 93cf98860138cb1898e8d8a98019195e37850e9b5e0a567593e65c52f4b01bd10c716de2bda2f9efc4d0a6c39454c7c1655d9bc8e3b260dcf22dca3e27c6f5fb
+"@tanstack/virtual-core@npm:3.8.6":
+  version: 3.8.6
+  resolution: "@tanstack/virtual-core@npm:3.8.6"
+  checksum: 41de4ac73e176bff896fade98ed82ebb1940e42feb13006a773d3ac87300e513cee516a9ce1db2e305f63df20c100d1577801da426a51fffe92bb1eba2e5e551
   languageName: node
   linkType: hard
 
@@ -3314,16 +3332,16 @@ __metadata:
   linkType: hard
 
 "@types/unist@npm:*, @types/unist@npm:^3.0.0":
-  version: 3.0.3
-  resolution: "@types/unist@npm:3.0.3"
-  checksum: 96e6453da9e075aaef1dc22482463898198acdc1eeb99b465e65e34303e2ec1e3b1ed4469a9118275ec284dc98019f63c3f5d49422f0e4ac707e5ab90fb3b71a
+  version: 3.0.2
+  resolution: "@types/unist@npm:3.0.2"
+  checksum: 3d04d0be69316e5f14599a0d993a208606c12818cf631fd399243d1dc7a9bd8a3917d6066baa6abc290814afbd744621484756803c80cba892c39cd4b4a85616
   languageName: node
   linkType: hard
 
 "@types/unist@npm:^2, @types/unist@npm:^2.0.0":
-  version: 2.0.11
-  resolution: "@types/unist@npm:2.0.11"
-  checksum: 6d436e832bc35c6dde9f056ac515ebf2b3384a1d7f63679d12358766f9b313368077402e9c1126a14d827f10370a5485e628bf61aa91117cf4fc882423191a4e
+  version: 2.0.10
+  resolution: "@types/unist@npm:2.0.10"
+  checksum: e2924e18dedf45f68a5c6ccd6015cd62f1643b1b43baac1854efa21ae9e70505db94290434a23da1137d9e31eb58e54ca175982005698ac37300a1c889f6c4aa
   languageName: node
   linkType: hard
 
@@ -4892,9 +4910,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.5.4":
-  version: 1.5.8
-  resolution: "electron-to-chromium@npm:1.5.8"
-  checksum: b9200c76fdeb4fc47deb3ea08e2eee65fa86dcc69ce4c78b0ff944b78ecca5635e39e68a2c0bbea40c2fac2893dd73e06ff9fb8df07fd33ea16432cd2dc5d05b
+  version: 1.5.7
+  resolution: "electron-to-chromium@npm:1.5.7"
+  checksum: 50b75a26e31659c16dd57e7816d4a6b0664284f594d1fb9074cdf5025bdc1c125a065186e0a170a4b4275372c898a36f2556f43759be7fae075a6cc6922d9040
   languageName: node
   linkType: hard
 
@@ -10972,6 +10990,8 @@ __metadata:
   resolution: "tailwind-nextjs-starter-blog@workspace:."
   dependencies:
     "@headlessui/react": 1.7.19
+    "@headlessui/tailwindcss": ^0.2.1
+    "@heroicons/react": ^2.1.5
     "@next/bundle-analyzer": 14.2.3
     "@svgr/webpack": ^8.0.1
     "@tailwindcss/forms": ^0.5.7

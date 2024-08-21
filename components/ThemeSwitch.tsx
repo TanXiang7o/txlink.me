@@ -3,6 +3,8 @@
 import { Fragment, useEffect, useState } from 'react'
 import { useTheme } from 'next-themes'
 import { Menu, RadioGroup, Transition } from '@headlessui/react'
+import { CheckIcon } from '@heroicons/react/20/solid'
+
 const Sun = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -98,6 +100,7 @@ const ThemeSwitch = () => {
                           <Sun />
                         </div>
                         Light
+                        <CheckIcon className="ui-checked:block hidden h-6 w-6 px-1" />
                       </button>
                     )}
                   </Menu.Item>
@@ -114,6 +117,7 @@ const ThemeSwitch = () => {
                           <Moon />
                         </div>
                         Dark
+                        <CheckIcon className="ui-checked:block hidden h-6 w-6 px-1" />
                       </button>
                     )}
                   </Menu.Item>
@@ -130,6 +134,7 @@ const ThemeSwitch = () => {
                           <Monitor />
                         </div>
                         System
+                        <CheckIcon className="ui-checked:block hidden h-6 w-6 px-1" />
                       </button>
                     )}
                   </Menu.Item>
