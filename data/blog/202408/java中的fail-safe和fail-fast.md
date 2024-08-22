@@ -126,8 +126,99 @@ System.out.println(userNames);
 
 没有报错。
 
+## 线程安全集合中的fail-safe机制
+
+fail-safe机制使得一些集合类能够安全的进行并发修改，这样的集合容器在遍历时不是直接在集合内容上进行访问，而是先复制原有集合内容，在拷贝的集合上进行操作
+
+缺点是在修改之前获得的迭代器感知不到其变化
+
+```java	
+public boolean remove(Object o) {
+    Object[] snapshot = getArray();
+    int index = indexOfRange(o, snapshot, 0, snapshot.length);
+    return index >= 0 && remove(o, snapshot, index);
+}
+
+/**
+ * A version of remove(Object) using the strong hint that given
+ * recent snapshot contains o at the given index.
+ */
+private boolean remove(Object o, Object[] snapshot, int index) {
+    synchronized (lock) {
+        Object[] current = getArray();
+        int len = current.length;
+        if (snapshot != current) findIndex: {
+            int prefix = Math.min(index, len);
+            for (int i = 0; i < prefix; i++) {
+                if (current[i] != snapshot[i]
+                    && Objects.equals(o, current[i])) {
+                    index = i;
+                    break findIndex;
+                }
+            }
+            if (index >= len)
+                return false;
+            if (current[index] == o)
+                break findIndex;
+            index = indexOfRange(o, current, index, len);
+            if (index < 0)
+                return false;
+        }
+        Object[] newElements = new Object[len - 1];
+        System.arraycopy(current, 0, newElements, 0, index);
+        System.arraycopy(current, index + 1,
+                         newElements, index,
+                         len - index - 1);
+        setArray(newElements);
+        return true;
+    }
+}
+```
+
+可以看到copyOnWriteArrayList的代码，在修改数组时，
+
+1. 首先使用`getArray()`方法获取当前的数组snapshot，通过indexofRange遍历找到要删除的元素下标，然后调用实际的remove方法
+2. 方法中会使用synchronized加锁，确保线程安全，然后拿到current数组，跟snapshot进行比较，如果不等，重新找下标
+3. 最后使用System.arraycopy将除了要删除的元素的下标位置的其余元素拷贝到新数组里，然后把新数组赋值给array
+
+当然，在修改前获得的迭代器是感知不到其变化的，因为修改后其内部array指向了新的数组引用，而之前的迭代器指向的还是旧数组。
+
+```java	
+List<String> userNames = new CopyOnWriteArrayList<>() {{
+    add("tx");
+    add("txtx");
+    add("txtxtx");
+    add("txtxtxtx");
+}};
+Iterator<String> iterator = userNames.iterator();
+for(String name:userNames){
+    if(name.equals("tx")){
+        userNames.remove(name);
+    }
+}
+System.out.println(userNames);
+while(iterator.hasNext()){
+    System.out.println(iterator.next());
+}
+Iterator<String> iterator1 = userNames.iterator();
+while (iterator1.hasNext()){
+    System.out.println(iterator1.next());
+}
+
+[txtx, txtxtx, txtxtxtx]
+tx
+txtx
+txtxtx
+txtxtxtx
+txtx
+txtxtx
+txtxtxtx
+```
+
+
+
 ## 总结
 
 总结一下，之所以会抛出ConcurrentModificationException，是因为我们的代码中使用了增强for循环，而增强for循环是通过iterator进行的，但是remove或者add确实集合类自己的方法，导致iterator在进入到next时，发现字段被意外修改，于是通过fail-fast机制直接报错。
 
-那么问题来了，对于线程安全的集合类还有这个机制吗？线程安全是怎么实现的？且听下回分解😁
+<font color=red> 注：本文中的代码全部基于jdk21 </font>
