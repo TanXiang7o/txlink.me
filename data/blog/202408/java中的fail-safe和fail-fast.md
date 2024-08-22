@@ -215,7 +215,8 @@ txtxtx
 txtxtxtx
 ```
 
-
+## vector和CopyOnWriteArrayList的区别是什么?
+通过源码可知，vector每个方法上包括读方法都使用了synchronized进行同步，所以其读效率远远不如CopyOnWriteArrayList，并且vector只对原数组进行操作，需要频繁检查是否需要扩容，而CopyOnWriteArrayList不需要扩容，通过COW思想就能使数组容量满足要求。
 
 ## 总结
 
