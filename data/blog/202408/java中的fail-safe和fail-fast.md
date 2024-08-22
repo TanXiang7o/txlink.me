@@ -221,4 +221,4 @@ txtxtxtx
 
 总结一下，之所以会抛出ConcurrentModificationException，是因为我们的代码中使用了增强for循环，而增强for循环是通过iterator进行的，但是remove或者add确实集合类自己的方法，导致iterator在进入到next时，发现字段被意外修改，于是通过fail-fast机制直接报错。
 
-<font color=red> 注：本文中的代码全部基于jdk21 </font>
+<font color="red">注：本文中的代码全部基于jdk21</font>
