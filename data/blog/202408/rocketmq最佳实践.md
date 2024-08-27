@@ -1,9 +1,9 @@
 ---
 title: RocketMQ最佳实践
 date: '2024-08-27'
-tags: ['RocketMQ', "消息队列", "架构设计", "部署架构", "分布式系统"]
+tags: ['RocketMQ', "消息队列", "最佳实践", "生产者", "消费者"]
 draft: false
-summary: '深入解析 RocketMQ 的技术架构与部署特点，涵盖 Producer、Consumer、NameServer 和 Broker 的角色与工作流程。'
+summary: '探索使用 RocketMQ 的最佳实践，包括生产者和消费者配置、消息处理和性能优化。'
 authors: ['default']
 ---
 
@@ -381,3 +381,22 @@ DefaultMQProducer、TransactionMQProducer、DefaultMQPushConsumer、DefaultMQPul
 - **vm.swappiness**，定义内核交换内存页面的积极程度。较高的值会增加攻击性，较低的值会减少交换量。建议将值设置为10来避免交换延迟。
 - **File descriptor limits**，RocketMQ需要为文件（CommitLog和ConsumeQueue）和网络连接打开文件描述符。我们建议设置文件描述符的值为655350。
 - [Disk scheduler](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Performance_Tuning_Guide/ch06s04s02.html)，RocketMQ建议使用I/O截止时间调度器，它试图为请求提供有保证的延迟。
+
+### **总结**
+
+RocketMQ 提供强大的消息传递功能，但要充分利用其潜力，**理解和实施最佳实践至关重要**。从微调消息生产和消费流程到配置系统环境，每个方面都有助于构建可靠且高性能的消息系统。
+
+------
+
+### **FAQs**
+
+1. **RocketMQ中Tags的重要性是什么？**
+   Tags帮助将消息归类到单一主题下，从而实现高效过滤，减少管理多个主题的复杂性。
+2. **我如何确保RocketMQ中的消息可靠性？**
+   实施额外的重试逻辑，并使用`SYNC_MASTER`和`SYNC_FLUSH`配置以提高可靠性。
+3. **如果消息消费速度慢，我该怎么办？**
+   增加同一消费者组下的消费者数量（机器或者进程）、增加并发消费的线程数量、批量处理消息，并优化消费过程中的IO交互。
+4. **RocketMQ如何处理消息重复？**
+   RocketMQ并不防止重复；在您的应用程序中实施幂等处理至关重要。虽然MsgId可以全局唯一，但是可能会有同一条消息被多次发送。
+5. **推荐哪些JVM设置用于RocketMQ？**
+   使用JDK 1.8，并根据您的工作负载优化内存和垃圾回收设置。
