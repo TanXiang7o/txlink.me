@@ -30,9 +30,11 @@ interface LayoutProps {
 }
 
 export default function PostLayout({ content, authorDetails, next, prev, children }: LayoutProps) {
-  const { filePath, path, slug, date, title, tags } = content
+  const { filePath, path, slug, date, title, tags, lastmod } = content
   const basePath = path.split('/')[0]
 
+  // @ts-ignore
+  // @ts-ignore
   return (
     <SectionContainer>
       <ScrollTopAndComment />
@@ -95,12 +97,21 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
             </dl>
             <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
               <div className="prose max-w-none pb-8 pt-10 dark:prose-invert">{children}</div>
-              <div className="pb-6 pt-6 text-sm text-gray-700 dark:text-gray-300">
-                <Link href={discussUrl(path)} rel="nofollow">
-                  Discuss on Twitter
-                </Link>
-                {` • `}
-                <Link href={editUrl(filePath)}>View on GitHub</Link>
+              <div className="flex justify-between pb-6 pt-6 text-sm text-gray-700 dark:text-gray-300">
+                <div>
+                  <Link href={discussUrl(path)} rel="nofollow">
+                    Discuss on Twitter
+                  </Link>
+                  {` • `}
+                  <Link href={editUrl(filePath)}>View on GitHub</Link>
+                </div>
+                <time dateTime={lastmod ? lastmod : date}>
+                  Modified on{' '}
+                  {new Date(lastmod ? lastmod : date).toLocaleDateString(
+                    siteMetadata.locale,
+                    postDateTemplate
+                  )}
+                </time>
               </div>
               {siteMetadata.comments && (
                 <div

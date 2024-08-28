@@ -1,6 +1,7 @@
 ---
 title: RocketMQ最佳实践
 date: '2024-08-27'
+lastmod: '2024-08-28'
 tags: ['RocketMQ', "消息队列", "最佳实践", "生产者", "消费者"]
 draft: false
 summary: '探索使用 RocketMQ 的最佳实践，包括生产者和消费者配置、消息处理和性能优化。'
