@@ -1,7 +1,7 @@
 ---
 title: ArrayList的序列化是怎么实现的？
 date: '2024-08-22'
-tags: ['java', '集合']
+tags: ["Java序列化", "transient关键字", "集合", "对象持久化", "反序列化"]
 draft: false
 summary: 'java中的类在序列化时，默认调用ObjectOutputStream的defaultWriteObject方法以及ObjectInputStream的defaultReadObject方法，进行序列化和反序列化。在序列化过程中，如果被序列化的类中定义了writeObjec和readObject方法，虚拟机会试图调用对象类里的writeObject和readObject方法，进行用户自定义的序列化和反序列化。'
 authors: ['default']
