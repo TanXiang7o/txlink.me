@@ -62,6 +62,8 @@ RocketMQ架构上主要分为四部分，如上图所示：
 - Producer发送消息，启动时先跟NameServer集群中的其中一台建立长连接，并从NameServer中获取当前发送的Topic存在哪些Broker上，轮询从队列列表中选择一个队列，然后与队列所在的Broker建立长连接从而向Broker发消息。
 - Consumer跟Producer类似，跟其中一台NameServer建立长连接，获取当前订阅Topic存在哪些Broker上，然后直接跟Broker建立连接通道，开始消费消息。
 
+---
+
 ### **结论**
 
 RocketMQ的架构设计和部署方式充分体现了其在分布式消息处理中强大的性能和灵活性。从Producer的消息发布，到Consumer的消息消费，再到NameServer和Broker的协作，RocketMQ提供了一套完备的解决方案，适用于各种规模的分布式系统。
