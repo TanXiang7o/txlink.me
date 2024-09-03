@@ -46,7 +46,7 @@ https://rocketmq.apache.org/zh/docs/
 
 ---
 
-## 总结
+## **总结**
 
 - **RocketMQ**
   - 优势：低延迟、高实时性、多样的消息模型支持、适合国内生态
@@ -57,7 +57,7 @@ https://rocketmq.apache.org/zh/docs/
 
 ### **FAQs**
 
-#### **1：RocketMQ 和 Kafka 适用于哪些不同的场景？**
+**1：RocketMQ 和 Kafka 适用于哪些不同的场景？**
 
 RocketMQ 更适用于需要低延迟、高实时性的在线业务场景，例如金融交易、支付系统等。而 Kafka 则在大数据处理、实时流数据分析等场景中更为合适。
 
