@@ -1,7 +1,7 @@
 ---
 title: RocketMQ vs Kafka
 date: '2024-09-01'
-lastmod: '2024-09-01'
+lastmod: '2024-09-03'
 tags: ["RocketMQ", "Kafka", "消息队列", "大数据", "线上业务"]
 draft: false
 summary: '探索RocketMQ和Kafka之间的差异，找到适合在线业务和大数据应用的最佳消息队列。'
@@ -12,7 +12,7 @@ authors: ['default']
 
 ---
 
-## RocketMQ
+## **RocketMQ**
 
 RocketMQ是阿里巴巴在2012年开源的消息队列产品，后来捐赠给Apache软件基金会，2017年正式毕业，称为Apache的顶级项目。RocketMQ的官网地址：https://rocketmq.apache.org/。
 
@@ -24,11 +24,11 @@ RocketMQ的性能要比RabbitMQ高一个数量级，每秒钟可以处理几十�
 
 RocketMQ的一个劣势是它在国外没有那么流行，与周边生态系统集成和兼容稍微差一些。
 
-官网上将RocketMQ和Kafka做了对比，RocketMQ除了终端还支持**dashboard**观测核心指标，kafka只支持终端。且**RocketMQ支持消息轨迹、消息优先级、广播消息、服务端触发的重试、延迟消息、JMS、OpenMessaging协议等，而kafka不支持**
+官网上将RocketMQ和Kafka做了对比，RocketMQ除了终端还支持**dashboard**观测核心指标，kafka只支持终端。且**RocketMQ支持消息轨迹、消息优先级、广播消息、服务端触发的重试、延迟消息、JMS、OpenMessaging协议等，而kafka不支持。**
 
 ## Kafka
 
-Kafka最早由LinkedIn开发，目前也是Apache的顶级项目，官网地址：https://kafka.apache.org/
+Kafka最早由LinkedIn开发，目前也是Apache的顶级项目，官网地址：https://kafka.apache.org/。
 
 Kafka目前已经是一个非常成熟的消息队列产品，无论是在数据可靠性、稳定性还是功能特性等方面都可以满足绝大多数场景的需求。
 
@@ -38,7 +38,7 @@ Kafka目前已经是一个非常成熟的消息队列产品，无论是在数据
 
 Kafka存在的问题是同步收发消息的响应时延比较高，当客户端发送一条消息时，Kafka并不会立即发送出去，而是要等一会儿攒在一批再统一发送，在它的Broker中很多地方还存在“**攒一波再处理**”的设计，当我们的业务场景中每秒钟的消息数量没有那么多时，Kafka的时延反而会比较高，因此，**Kafka不太适合在线业务场景**。
 
-### 参考：
+### **参考：**
 
 https://www.cnblogs.com/wing011203/p/17182477.html
 
@@ -49,11 +49,11 @@ https://rocketmq.apache.org/zh/docs/
 ## **总结**
 
 - **RocketMQ**
-  - 优势：低延迟、高实时性、多样的消息模型支持、适合国内生态
-  - 劣势：国际化支持较弱，与部分国外工具的集成不如 Kafka 便捷
+  - 优势：低延迟、高实时性、多样的消息模型支持、适合国内生态。
+  - 劣势：国际化支持较弱，与部分国外工具的集成不如 Kafka 便捷。
 - **Kafka**
-  - 优势：高吞吐量、强大的生态系统、全球范围的社区支持
-  - 劣势：在低并发场景下，消息延迟可能较高
+  - 优势：高吞吐量、强大的生态系统、全球范围的社区支持。
+  - 劣势：在低并发场景下，消息延迟可能较高。
 
 ### **FAQs**
 
