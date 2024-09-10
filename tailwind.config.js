@@ -71,6 +71,46 @@ module.exports = {
           },
         },
       }),
+      animation: {
+        'rubber-band': 'rubber-band 1s ease-in-out',
+        jiggle: 'jiggle 0.5s ease-in-out',
+      },
+      keyframes: {
+        'rubber-band': {
+          '0%': {
+            transform: 'scale(1)',
+          },
+          '30%': {
+            transform: 'scale(1.25)',
+          },
+          '40%': {
+            transform: 'scale(0.75)',
+          },
+          '50%': {
+            transform: 'scale(1.15)',
+          },
+          '65%': {
+            transform: 'scale(0.95)',
+          },
+          '75%': {
+            transform: 'scale(1.05)',
+          },
+          '100%': {
+            transform: 'scale(1)',
+          },
+        },
+        jiggle: {
+          '0%': {
+            transform: 'rotate(-4deg)',
+          },
+          '50%': {
+            transform: 'rotate(4deg)',
+          },
+          '100%': {
+            transform: 'rotate(-4deg)',
+          },
+        },
+      },
     },
   },
   plugins: [
