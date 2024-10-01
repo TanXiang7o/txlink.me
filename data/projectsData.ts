@@ -7,20 +7,11 @@ interface Project {
 
 const projectsData: Project[] = [
   {
-    title: 'A Search Engine',
-    description: `What if you could look up any information in the world? Webpages, images, videos
-    and more. Google has many features to help you find exactly what you're looking
-    for.`,
-    imgSrc: '/static/images/google.png',
-    href: 'https://www.google.com',
-  },
-  {
-    title: 'The Time Machine',
-    description: `Imagine being able to travel back in time or to the future. Simple turn the knob
-    to the desired date and press "Go". No more worrying about lost keys or
-    forgotten headphones with this simple yet affordable solution.`,
-    imgSrc: '/static/images/time-machine.jpg',
-    href: '/blog/the-time-machine',
+    title: 'SaaS shortLink platform',
+    description: `This is a SaaS short link system designed for enterprise and individual users, providing an efficient, safe and reliable short link management platform. It simplifies long links
+    Management and sharing, with in-depth analysis and tracking functions, allowing users to flexibly manage and optimize links, thereby improving marketing effectiveness and business results.`,
+    imgSrc: '/static/images/SaaS-shortLink.png',
+    href: 'http://101.126.23.243/',
   },
 ]
 
