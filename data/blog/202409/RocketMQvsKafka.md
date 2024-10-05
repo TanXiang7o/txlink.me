@@ -85,9 +85,10 @@ sendfile也是内核提供的一个方法，程序发起系统调用sendfile将�
 
 ### 参考：
 
-https://www.cnblogs.com/wing011203/p/17182477.html
+- [我们要选择哪个消息队列场景](https://www.cnblogs.com/wing011203/p/17182477.html)
 
-https://rocketmq.apache.org/zh/docs/
+- [为什么选择RocketMQ](https://rocketmq.apache.org/zh/docs/)
+- [消息队列RocketMQ是什么？和Kafka有什么区别？架构是怎么样的？](https://www.bilibili.com/video/BV1m7421Z7fN/?spm_id_from=333.337.search-card.all.click&vd_source=c5e40482c9f93ec9bfa8baa45a5b95f0)
 
 ---
 
