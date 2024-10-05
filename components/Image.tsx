@@ -20,21 +20,16 @@ const Image = ({ shouldOpenLightbox = true, src, ...rest }: NextImageProps) => {
     document.documentElement.classList.add('lightbox-loading')
     setOpenLightbox(true)
   }
-  const isThumb = rest.id === 'thumbnail-image'
   const className = clsx(
     `flex justify-center`,
     shouldOpenLightbox && 'cursor-zoom-in',
-    isThumb && 'thumbnail-image',
     rest.alt.endsWith('_M') && `w-1/2 m-auto`,
     rest.alt.endsWith('_S') && `w-1/4 m-auto`
   )
 
   return (
     <>
-      <div
-        className={className}
-        data-umami-event={isThumb ? 'view-post-thumbnail' : 'view-image-in-lightbox'}
-      >
+      <div className={className}>
         <NextImage src={`${basePath || ''}${src}`} {...rest} onClick={handleOpenLightbox} />
       </div>
       {openLightbox && (
