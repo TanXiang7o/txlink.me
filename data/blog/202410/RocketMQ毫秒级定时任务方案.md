@@ -1,7 +1,7 @@
 ---
 title: RocketMQ毫秒级定时任务方案
 date: '2024-10-05'
-lastmod: '2024-10-05'
+lastmod: '2024-10-08'
 tags: ["RocketMQ", "定时任务", "毫秒级精度", "流控机制", "时间轮"]
 draft: false
 summary: '探索RocketMQ的新定时任务方案，提供毫秒级精度与流控机制'
@@ -649,6 +649,11 @@ public void run() {
     setState(AbstractStateService.END);
 }
 ```
+
+## 参考
+
+- [RIP-43 Support timing messages with arbitrary time delay.](https://docs.google.com/document/d/1D6XWwY39p531c2aVi5HQll9iwzTUNT1haUFHqMoRkT0/edit#heading=h.d7x9otgla1zw)
+- [Rocketmq 5.0 任意时间定时消息（RIP-43） 原理详解 & 源码解析](https://hscarb.github.io/rocketmq/20230808-rocketmq-timer.html)
 
 ## **结论**
 
