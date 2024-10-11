@@ -93,6 +93,12 @@ authors: ['default']
 
 RocketMQ 5.0在流场景中的应用为数据架构的解耦带来了极大的便利。无论是静态Topic的扩容模式，还是高效的批量消息处理，都展示了RocketMQ在流存储领域的强大能力。通过引入Schema，RocketMQ不仅提升了数据集成的效率，还增强了系统的稳定性和扩展性。
 
+## 参考
+
+- [深度剖析 RocketMQ 5.0，流存储：流场景的诉求是什么？](https://developer.aliyun.com/article/1458570#slide-5)
+
+- [「大师课」深度剖析 RocketMQ5.0](https://edu.aliyun.com/course/317148/lesson/341800526?spm=a2cwt.28120015.317148.11.11006c77UaqGvd)
+
 ## 常见问题解答
 
 1. **什么是RocketMQ的静态Topic？** 
