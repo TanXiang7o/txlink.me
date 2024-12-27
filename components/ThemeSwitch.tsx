@@ -100,7 +100,7 @@ const ThemeSwitch = () => {
                           <Sun />
                         </div>
                         Light
-                        <CheckIcon className="ml-2 hidden h-6 w-6 px-1 ui-checked:block" />
+                        <CheckIcon className="ui-checked:block ml-2 hidden h-6 w-6 px-1" />
                       </button>
                     )}
                   </Menu.Item>
@@ -117,7 +117,7 @@ const ThemeSwitch = () => {
                           <Moon />
                         </div>
                         Dark
-                        <CheckIcon className="ml-2 hidden h-6 w-6 px-1 ui-checked:block" />
+                        <CheckIcon className="ui-checked:block ml-2 hidden h-6 w-6 px-1" />
                       </button>
                     )}
                   </Menu.Item>
@@ -134,7 +134,7 @@ const ThemeSwitch = () => {
                           <Monitor />
                         </div>
                         System
-                        <CheckIcon className="hidden h-6 w-6 px-1 ui-checked:block" />
+                        <CheckIcon className="ui-checked:block hidden h-6 w-6 px-1" />
                       </button>
                     )}
                   </Menu.Item>
