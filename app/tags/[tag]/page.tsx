@@ -8,7 +8,9 @@ import { genPageMetadata } from 'app/seo'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
-export async function generateMetadata(props: { params: Promise<{ tag: string }> }): Promise<Metadata> {
+export async function generateMetadata(props: {
+  params: Promise<{ tag: string }>
+}): Promise<Metadata> {
   const params = await props.params
   const tag = decodeURI(params.tag)
   return genPageMetadata({
