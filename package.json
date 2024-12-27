@@ -27,12 +27,10 @@
     "github-slugger": "^2.0.0",
     "gray-matter": "^4.0.2",
     "hast-util-from-html-isomorphic": "^2.0.0",
-    "image-size": "1.0.0",
     "next": "15.1.3",
     "next-contentlayer2": "0.5.3",
     "next-themes": "^0.4.4",
     "pliny": "0.4.0",
-    "postcss": "^8.4.24",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "reading-time": "1.5.0",
@@ -46,9 +44,7 @@
     "remark-gfm": "^4.0.0",
     "remark-github-blockquote-alert": "^1.2.1",
     "remark-math": "^6.0.0",
-    "tailwindcss": "^3.4.14",
-    "unist-util-visit": "^5.0.0",
-    "yarn": "^1.22.22"
+    "tailwindcss": "^3.4.14"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",
