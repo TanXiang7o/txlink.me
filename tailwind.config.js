@@ -26,7 +26,7 @@ module.exports = {
         playpen: ['var(--font-playpen-sans)'],
       },
       colors: {
-        primary: colors.amber,
+        primary: colors.rose,
         gray: colors.gray,
         dark: '#22272e',
       },
