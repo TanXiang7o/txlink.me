@@ -22,7 +22,8 @@ module.exports = {
         14: '3.5rem',
       },
       fontFamily: {
-        sans: ['var(--font-outfit)', ...fontFamily.sans],
+        sans: ['var(--font-nunito)', ...fontFamily.sans],
+        playpen: ['var(--font-playpen-sans)'],
       },
       colors: {
         primary: colors.amber,
@@ -113,8 +114,5 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    require('@tailwindcss/forms'),
-    require('@tailwindcss/typography')
-  ],
+  plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
 }

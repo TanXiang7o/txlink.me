@@ -2,7 +2,7 @@ import 'css/tailwind.css'
 import 'pliny/search/algolia.css'
 import 'remark-github-blockquote-alert/alert.css'
 
-import { Space_Grotesk, Outfit } from 'next/font/google'
+import { Nunito, JetBrains_Mono, Playpen_Sans } from 'next/font/google'
 import { Analytics, AnalyticsConfig } from 'pliny/analytics'
 import { SearchProvider, SearchConfig } from 'pliny/search'
 import Header from '@/components/Header'
@@ -12,16 +12,26 @@ import siteMetadata from '@/data/siteMetadata'
 import { ThemeProviders } from './theme-providers'
 import { Metadata } from 'next'
 
-const space_grotesk = Space_Grotesk({
+const FONT_PLAYPEN_SANS = Playpen_Sans({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-space-grotesk',
+  style: ['normal'],
+  weight: ['800'],
+  variable: '--font-playpen-sans',
 })
 
-const outfit = Outfit({
+const FONT_NUNITO = Nunito({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-outfit',
+  weight: ['400', '500', '600', '700', '800'],
+  variable: '--font-nunito',
+})
+
+const FONT_JETBRAINS_MONO = JetBrains_Mono({
+  weight: ['400', '500'],
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-jetbrains-mono',
 })
 
 export const metadata: Metadata = {
@@ -70,7 +80,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang={siteMetadata.language}
-      className={`${outfit.variable} scroll-smooth`}
+      className={`
+        ${FONT_PLAYPEN_SANS.variable} 
+        ${FONT_NUNITO.variable} 
+        ${FONT_JETBRAINS_MONO.variable} 
+        scroll-smooth antialiased`}
       suppressHydrationWarning
     >
       <link

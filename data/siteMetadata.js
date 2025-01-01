@@ -3,7 +3,7 @@ const siteMetadata = {
   title: "Tx's Blog",
   author: 'TanXiang',
   headerTitle: "Tx's Blog",
-  description: 'Take a look around & see what good you can do as you strive forward once again.',
+  description: 'Take a look around & see what good you can do as you strive forward once again',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://www.txlink.me',
