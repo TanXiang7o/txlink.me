@@ -28,7 +28,7 @@ module.exports = {
       colors: {
         primary: colors.rose,
         gray: colors.gray,
-        dark: '#22272e',
+        dark: '#1f1f1f',
       },
       zIndex: {
         60: '60',

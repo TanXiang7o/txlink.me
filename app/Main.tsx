@@ -23,10 +23,7 @@ export default function Home({ posts }) {
           {posts.slice(0, MAX_DISPLAY).map((post) => {
             const { slug, date, title, summary, tags } = post
             return (
-              <li
-                key={slug}
-                className="group rounded-md py-8 hover:bg-gray-50 dark:hover:bg-zinc-800"
-              >
+              <li key={slug} className="group rounded-md py-8 hover:bg-gray-50 dark:hover:bg-dark">
                 <article>
                   <div className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
                     <dl>
@@ -52,14 +49,14 @@ export default function Home({ posts }) {
                             ))}
                           </div>
                         </div>
-                        <div className="prose max-w-none text-gray-500 group-hover:text-gray-800 dark:text-gray-400">
+                        <div className="prose max-w-none text-gray-500 group-hover:text-gray-800 dark:text-gray-400 dark:group-hover:text-gray-400">
                           {summary}
                         </div>
                       </div>
                       <div className="text-base font-medium leading-6">
                         <Link
                           href={`/blog/${slug}`}
-                          className="rounded-md bg-neutral-200 px-3.5 py-2 font-semibold text-primary-500 shadow-sm hover:bg-neutral-300 hover:text-primary-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-900 dark:bg-neutral-600"
+                          className="rounded-md px-3.5 py-2 font-semibold text-gray-500 shadow-sm hover:bg-neutral-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-900 dark:bg-neutral-800 dark:text-gray-300"
                           aria-label={`Read more: "${title}"`}
                         >
                           Read more &rarr;
@@ -77,7 +74,7 @@ export default function Home({ posts }) {
         <div className="flex justify-end text-base font-medium leading-6">
           <Link
             href="/blog"
-            className="rounded-md bg-neutral-200 px-3.5 py-2 font-semibold text-primary-500 shadow-sm hover:bg-neutral-300 hover:text-primary-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-900 dark:bg-neutral-600"
+            className="rounded-md px-3.5 py-2 font-semibold text-gray-500 shadow-sm hover:bg-neutral-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-900 dark:bg-neutral-800 dark:text-gray-300"
             aria-label="All posts"
           >
             All Posts &rarr;

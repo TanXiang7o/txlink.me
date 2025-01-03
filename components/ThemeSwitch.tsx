@@ -45,12 +45,12 @@ const ThemeSwitch = () => {
           <MenuButton aria-label="Theme switcher">
             {mounted ? (
               resolvedTheme === 'dark' ? (
-                <MoonStar strokeWidth={1.5} size={22} />
+                <MoonStar strokeWidth={2} size={22} />
               ) : (
-                <Sun strokeWidth={1.5} size={22} />
+                <Sun strokeWidth={2} size={22} />
               )
             ) : (
-              <SunMoon strokeWidth={1.5} size={22} />
+              <SunMoon strokeWidth={2} size={22} />
             )}
           </MenuButton>
         </div>
@@ -77,7 +77,7 @@ const ThemeSwitch = () => {
                       as="div"
                       className="flex w-full items-center gap-3 px-2 py-1.5 text-sm"
                     >
-                      <Icon size={20} strokeWidth={1.5} />
+                      <Icon size={20} strokeWidth={2} />
                       <span>{label}</span>
                     </MenuItem>
                   </Radio>

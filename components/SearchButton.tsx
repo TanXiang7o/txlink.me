@@ -16,7 +16,7 @@ const SearchButton = () => {
         aria-label="Search"
         className="hover:animate-rubber-band hover:text-primary-400"
       >
-        <Command size={22} strokeWidth={1.5} />
+        <Command size={22} strokeWidth={2} />
       </SearchButtonWrapper>
     )
   }
