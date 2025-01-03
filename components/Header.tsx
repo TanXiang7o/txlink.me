@@ -1,11 +1,12 @@
 import siteMetadata from '@/data/siteMetadata'
 import headerNavLinks from '@/data/headerNavLinks'
-import Logo1 from '@/data/mylogo.svg'
-import Link from './Link'
-import MobileNav from './MobileNav'
-import ThemeSwitch from './ThemeSwitch'
-import SearchButton from './SearchButton'
-import Umamishare from './Umamishare'
+import Image from '@/components/Image'
+import Link from '@/components/Link'
+import MobileNav from '@/components/MobileNav'
+import ThemeSwitch from '@/components/ThemeSwitch'
+import SearchButton from '@/components/SearchButton'
+import Umamishare from '@/components/Umamishare'
+import { clsx } from 'clsx'
 
 const Header = () => {
   let headerClass = 'flex items-center w-full bg-white dark:bg-dark justify-between py-10'
@@ -15,19 +16,23 @@ const Header = () => {
 
   return (
     <header className={headerClass}>
-      <Link href="/" aria-label={siteMetadata.headerTitle}>
-        <div className="flex items-center justify-between">
-          <div className="mr-3">
-            <Logo1 />
-          </div>
-          {/* {typeof siteMetadata.headerTitle === 'string' ? (
-            <div className="hidden h-6 text-2xl font-semibold sm:block">
-              {siteMetadata.headerTitle}
-            </div>
-          ) : (
-            siteMetadata.headerTitle
-          )} */}
-        </div>
+      <Link
+        href="/"
+        aria-label={siteMetadata.headerTitle}
+        className={clsx([
+          'rounded-xl p-0.5',
+          'ring-1 ring-zinc-900/5 dark:ring-white/10',
+          'shadow-lg shadow-zinc-800/5',
+        ])}
+      >
+        <Image
+          src="/static/headfig.jpg"
+          alt={siteMetadata.headerTitle}
+          width={100}
+          height={100}
+          className="h-10 w-10 rounded-xl"
+          loading="eager"
+        />
       </Link>
       <div className="flex items-center space-x-4 leading-5 sm:space-x-6">
         <div className="no-scrollbar hidden max-w-40 items-center space-x-4 overflow-x-auto sm:flex sm:space-x-6 md:max-w-72 lg:max-w-96">
