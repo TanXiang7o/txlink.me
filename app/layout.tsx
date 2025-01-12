@@ -11,6 +11,7 @@ import Footer from '@/components/Footer'
 import siteMetadata from '@/data/siteMetadata'
 import { ThemeProviders } from './theme-providers'
 import { Metadata } from 'next'
+import { TiltedGridBackground } from '@/components/ui/tilted-grid-background'
 
 const FONT_PLAYPEN_SANS = Playpen_Sans({
   subsets: ['latin'],
@@ -121,6 +122,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
       <link rel="alternate" type="application/rss+xml" href={`${basePath}/feed.xml`} />
       <body className="bg-white pl-[calc(100vw-100%)] text-black antialiased dark:bg-dark dark:text-white">
+        <TiltedGridBackground className="inset-x-0 top-0 z-[-1] h-[50vh]" />
         <ThemeProviders>
           <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
           <SectionContainer>
