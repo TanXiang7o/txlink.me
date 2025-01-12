@@ -8,8 +8,8 @@ const siteMetadata = {
   theme: 'system', // system, dark or light
   siteUrl: 'https://www.txlink.me',
   siteRepo: 'https://github.com/TanXiang7o/txlink.me',
-  siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
-  socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.png`,
+  siteLogo: `${process.env.BASE_PATH || ''}/static/images/avatar.png`,
+  socialBanner: `${process.env.BASE_PATH || ''}/static/images/home-page.png`,
   mastodon: 'https://mastodon.social/@mastodonuser',
   email: '1092145181@qq.com',
   github: 'https://github.com/TanXiang7o',

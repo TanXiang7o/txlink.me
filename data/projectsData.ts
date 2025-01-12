@@ -13,6 +13,12 @@ const projectsData: Project[] = [
     imgSrc: '/static/images/SaaS-shortLink.png',
     href: 'http://101.126.23.243/',
   },
+  {
+    title: 'txlink.me',
+    description: '',
+    imgSrc: '/static/images/home-page.png',
+    href: 'https://www.txlink.me',
+  },
 ]
 
 export default projectsData
