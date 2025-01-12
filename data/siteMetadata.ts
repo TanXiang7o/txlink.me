@@ -7,8 +7,8 @@ const siteMetadata = {
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://www.txlink.me',
-  siteRepo: 'https://github.com/TanXiang7o/tailwind-nextjs-starter-blog',
-  siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo1.png`,
+  siteRepo: 'https://github.com/TanXiang7o/txlink.me',
+  siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
   socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.png`,
   mastodon: 'https://mastodon.social/@mastodonuser',
   email: '1092145181@qq.com',
@@ -98,4 +98,4 @@ const siteMetadata = {
   },
 }
 
-module.exports = siteMetadata
+export default siteMetadata
