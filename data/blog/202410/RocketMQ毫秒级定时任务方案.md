@@ -93,6 +93,29 @@ public class Slot {
 }
 ```
 其中，时间轮中每个槽位就是一个32字节的Slot，timeMs表示当前槽位对应的延迟时间，firstPos表示槽位中的第一条延迟消息，lastPos表示最后一条
+TimeWheel的总大小计算如下，可以查看本地/uses/{user}/store文件夹下timewheel文件的大小：
+```java
+步骤1：计算 slotsTotal
+slotsTotal = TIMER_WHEEL_TTL_DAY * DAY_SECS
+           = 7 * (24 * 3600)
+           = 7 * 86400
+           = 604,800 个槽位
+
+步骤2：计算实际槽位数量
+实际槽位数 = slotsTotal * 2
+           = 604,800 * 2
+           = 1,209,600 个槽位
+
+步骤3：计算总字节数
+wheelLength = 实际槽位数 * Slot.SIZE
+            = 1,209,600 * 32
+            = 38,707,200 字节
+
+步骤4：转换为MB
+大小(MB) = 38,707,200 ÷ (1024 * 1024)
+         = 38,707,200 ÷ 1,048,576
+         ≈ 36.91 MB
+```
 
 具体的扫描时间轮流程如图所示：
 
