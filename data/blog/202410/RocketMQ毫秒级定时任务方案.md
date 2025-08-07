@@ -1,11 +1,17 @@
 ---
 title: RocketMQ毫秒级定时任务方案
-date: '2024-10-05'
-lastmod: '2024-10-08'
-tags: ["RocketMQ", "定时任务", "毫秒级精度", "流控机制", "时间轮"]
+date: 2024-10-05
+lastmod: 2025-08-07
+tags:
+  - RocketMQ
+  - 定时任务
+  - 毫秒级精度
+  - 流控机制
+  - 时间轮
 draft: false
-summary: '探索RocketMQ的新定时任务方案，提供毫秒级精度与流控机制'
-authors: ['default']
+summary: 探索RocketMQ的新定时任务方案，提供毫秒级精度与流控机制
+authors:
+  - default
 ---
 
 # RocketMQ毫秒级定时任务方案
@@ -307,7 +313,7 @@ public boolean doEnqueue(long offsetPy, int sizePy, long delayedTime, MessageExt
         magic = magic | MAGIC_DELETE;
     }
     String realTopic = messageExt.getProperty(MessageConst.PROPERTY_REAL_TOPIC);
-    // 获取定时消息对应的时间轮槽
+    // 获取定时消息对应的时间轮槽，构建timerLog中的一个unit，52字节
     Slot slot = timerWheel.getSlot(delayedTime);
     ByteBuffer tmpBuffer = timerLogBuffer;
     tmpBuffer.clear();
@@ -325,14 +331,52 @@ public boolean doEnqueue(long offsetPy, int sizePy, long delayedTime, MessageExt
         // 写入 TimerLog 成功，将写入 TimerLog 的消息加入时间轮
         // If it's a delete message, then slot's total num -1
         // TODO: check if the delete msg is in the same slot with "the msg to be deleted".
+        // 如果槽位为空（slot.firstPos == -1），则设为当前消息位置（ret）,否则保持原有链表头
+        // 链表尾部设置为当前消息位置ret
+        // num：删除消息时减1，普通消息时加1
+        // magic：槽位的标记信息
         timerWheel.putSlot(delayedTime, slot.firstPos == -1 ? ret : slot.firstPos, ret,
             isDelete ? slot.num - 1 : slot.num + 1, slot.magic);
         addMetric(messageExt, isDelete ? -1 : 1);
     }
     return -1 != ret;
 }
-```
 
+```
+getSlots计算过程：
+```
+  /*
+    假设：
+      timeMs = 1640995200000（2022-01-01 00:00:00）
+      precisionMs = 1000
+      slotsTotal = 604800
+      1. 计算时间刻度
+      timeMs / precisionMs = 1640995200000 / 1000 = 1640995200
+      2. 计算槽位索引
+      slotIndex = 1640995200 % (604800 * 2) = 1640995200 % 1209600 = 825600
+      3. 计算物理位置
+      position = 825600 * 32 = 26419200 字节
+   */
+  public Slot getSlot(long timeMs) {
+      Slot slot = getRawSlot(timeMs);
+      if (slot.timeMs != timeMs / precisionMs * precisionMs) {
+          //空槽位
+          return new Slot(-1, -1, -1);
+      }
+      return slot;
+  }
+
+  //testable
+  public Slot getRawSlot(long timeMs) {
+      localBuffer.get().position(getSlotIndex(timeMs) * Slot.SIZE);
+      return new Slot(localBuffer.get().getLong() * precisionMs,
+          localBuffer.get().getLong(), localBuffer.get().getLong(), localBuffer.get().getInt(), localBuffer.get().getInt());
+  }
+
+  public int getSlotIndex(long timeMs) {
+      return (int) (timeMs / precisionMs % (slotsTotal * 2));
+  }
+```
 
 
 #### 定时消息投递
