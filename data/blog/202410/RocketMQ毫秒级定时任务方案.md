@@ -74,7 +74,25 @@ private final ThreadLocal<ByteBuffer> localBuffer = new ThreadLocal<ByteBuffer>(
     }
 };
 private final int wheelLength;
+
+/**
+ * Represents a slot of timing wheel. Format:
+ * ┌────────────┬───────────┬───────────┬───────────┬───────────┐
+ * │delayed time│ first pos │ last pos  │    num    │   magic   │
+ * ├────────────┼───────────┼───────────┼───────────┼───────────┤
+ * │   8bytes   │   8bytes  │  8bytes   │   4bytes  │   4bytes  │
+ * └────────────┴───────────┴───────────┴───────────┴───────────┘
+ */
+public class Slot {
+    public static final short SIZE = 32;
+    public final long timeMs; //delayed time
+    public final long firstPos;
+    public final long lastPos;
+    public final int num;
+    public final int magic; //no use now, just keep it
+}
 ```
+其中，时间轮中每个槽位就是一个32字节的Slot，timeMs表示当前槽位对应的延迟时间，firstPos表示槽位中的第一条延迟消息，lastPos表示最后一条
 
 具体的扫描时间轮流程如图所示：
 
@@ -344,7 +362,7 @@ public boolean doEnqueue(long offsetPy, int sizePy, long delayedTime, MessageExt
 
 ```
 getSlots计算过程：
-```
+```java
   /*
     假设：
       timeMs = 1640995200000（2022-01-01 00:00:00）
@@ -355,7 +373,7 @@ getSlots计算过程：
       2. 计算槽位索引
       slotIndex = 1640995200 % (604800 * 2) = 1640995200 % 1209600 = 825600
       3. 计算物理位置
-      position = 825600 * 32 = 26419200 字节
+      position = 825600 * 32 = 26419200 字节 ≈ 26mb
    */
   public Slot getSlot(long timeMs) {
       Slot slot = getRawSlot(timeMs);
