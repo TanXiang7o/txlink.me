@@ -638,7 +638,7 @@ public void run() {
 这个线程的作用是：将消息从 dequeuePutQueue 中取出，若已经到期，投递到 CommitLog 中
 
 - 无限循环从 dequeuePutQueue 中取出 TimerRequest
-- 将原始消息的 Topic 和 queueId 从消息属性中取出，用它们构造成一个新的消息
+- 将原始消息的 Topic 和 queueId 从消息属性中取出，用它们构造成一个新的消息（对于需要轮转的消息，将其Topic和QueueId不变，重新投入CommitLog再过流程）
 - 将消息投递到 CommitLog
 - 如果投递失败，则需要等待 精度/2 时间然后重新投递，必须保证消息投递成功。
 
@@ -677,6 +677,7 @@ public void run() {
                         }
                         addMetric(msgExt, -1);
                         // 将原始定时消息的 Topic 和 QueueId 等信息复原，构造一个新的消息
+                        // 对于需要轮转的消息，将其Topic和QueueId不变，重新投入CommitLog再过流程
                         MessageExtBrokerInner msg = convert(msgExt, tr.getEnqueueTime(), needRoll(tr.getMagic()));
                         doRes = PUT_NEED_RETRY != doPut(msg, needRoll(tr.getMagic()));
                         while (!doRes && !isStopped()) {
