@@ -93,7 +93,7 @@ public class Slot {
 }
 ```
 其中，时间轮中每个槽位就是一个32字节的Slot，timeMs表示当前槽位对应的延迟时间，firstPos表示槽位中的第一条延迟消息，lastPos表示最后一条
-TimeWheel的总大小计算如下，可以查看本地/uses/{user}/store文件夹下timewheel文件的大小：
+TimeWheel的总大小计算如下，可以查看本地/uses/.../store文件夹下timewheel文件的大小：
 ```java
 步骤1：计算 slotsTotal
 slotsTotal = TIMER_WHEEL_TTL_DAY * DAY_SECS
@@ -119,13 +119,13 @@ wheelLength = 实际槽位数 * Slot.SIZE
 
 具体的扫描时间轮流程如图所示：
 
-![img](/static/images/202410/AD_4nXdLWgJzizmloHUDoi2HNKFuddvzGeAz1UgtYQ7_E_HGLZBHTH9_VlWSAo2l_MuwEdMTrStw5NmMYd4KveA-ito59SOUiZEpM5Rv4Sr3GEQ6k1XlasvYDiH7kIMGg39UHV5wGhLJqc4vDdmaRRY902Nbefg.png)
+![img](https://images.txserve.top/202410/images/AD_4nXdLWgJzizmloHUDoi2HNKFuddvzGeAz1UgtYQ7_E_HGLZBHTH9_VlWSAo2l_MuwEdMTrStw5NmMYd4KveA-ito59SOUiZEpM5Rv4Sr3GEQ6k1XlasvYDiH7kIMGg39UHV5wGhLJqc4vDdmaRRY902Nbefg.png)
 
 ### 定时消息投递步骤
 
 定时消息主要的逻辑可以分为**保存**和**投递**两个阶段，[RIP-43](https://docs.google.com/document/d/1D6XWwY39p531c2aVi5HQll9iwzTUNT1haUFHqMoRkT0/edit#heading=h.d7x9otgla1zw)将每个节点都拆分成不同的任务（服务线程），用生产-消费模式衔接每个任务，实现任务的解耦和流控。
 
-![img](/static/images/202410/AD_4nXfS88XxiEulSbGql9rgCQzFY5Fms1oJ1avfSn7z8wAuCh5CDW-xUrUSyKA-f0JWf9ldzDf216SE6D0OFAxJ1BL-xb4I-Cm4BFftm3SMcocoQJ9_GPzDmriCmY60nw0Jo3VKcn6CkTKdc9J6yp1wvVEemoc.png)
+![img](https://images.txserve.top/202410/images/AD_4nXfS88XxiEulSbGql9rgCQzFY5Fms1oJ1avfSn7z8wAuCh5CDW-xUrUSyKA-f0JWf9ldzDf216SE6D0OFAxJ1BL-xb4I-Cm4BFftm3SMcocoQJ9_GPzDmriCmY60nw0Jo3VKcn6CkTKdc9J6yp1wvVEemoc.png)
 
 如上图所示，带有 enqueue 的为定时消息保存的线程和队列，带有 dequeue 的为定时消息投递的线程和队列。
 

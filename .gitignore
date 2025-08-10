@@ -21,6 +21,9 @@ public/sitemap.xml
 # production
 /build
 *.xml
+.idea
+.vscode
+/data/blog/.obsidian
 
 # rss feed
 /public/feed.xml
