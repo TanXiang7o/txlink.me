@@ -83,15 +83,15 @@ java中，x>>k算术右移， x>>>k逻辑右移
 
 3.4 16个通用目的寄存器（存储整数数据和指针）：
 
-![img](https://images.txserve.top/202206/images/7993547-1b71f4d95e126553.png)
+![img](https://images.txlink.top/202206/images/7993547-1b71f4d95e126553.png)
 
 3.4.1 一条指令包含一个或多个操作数，操作数分为立即数，寄存器和内存引用（存储器）。
 
-![img](https://images.txserve.top/202206/images/7993547-dcd00c008235f9fc.png)
+![img](https://images.txlink.top/202206/images/7993547-dcd00c008235f9fc.png)
 
 3.4.2 mov指令：
 
-![img](https://images.txserve.top/202206/images/webp.webp)
+![img](https://images.txlink.top/202206/images/webp.webp)
 
 五种可能组合：
 
@@ -109,13 +109,13 @@ java中，x>>k算术右移， x>>>k逻辑右移
 
 3.4.4压入和弹出栈数据：
 
-![img](https://images.txserve.top/202206/images/webp-16629670509557.webp)
+![img](https://images.txlink.top/202206/images/webp-16629670509557.webp)
 
-![img](https://images.txserve.top/202206/images/webp-166296717288110.webp)
+![img](https://images.txlink.top/202206/images/webp-166296717288110.webp)
 
 3.5算术和逻辑操作
 
-![img](https://images.txserve.top/202206/images/webp-166296720854013.webp)
+![img](https://images.txlink.top/202206/images/webp-166296720854013.webp)
 
 大多数操作都分成了指令类，这些指令类有各种带不同大小操作操作数的变种。指令类ADD由四条加法指令组成：addb、addw、addl和addq，分别是字节加法、字加法、双字加法和四字加法。这些操作被分为四组：加载有效地址、一元操作、二元操作和移位。
 
@@ -141,7 +141,7 @@ k表示移位量，可以是立即数或者放在单字节寄存器`%cl`中。x8
 
 两个64位整数乘法、除法和取模操作。
 
-![img](https://images.txserve.top/202206/images/v2-69a17d8bceed1a03c991e7193fd779ef_720w.jpg)
+![img](https://images.txlink.top/202206/images/v2-69a17d8bceed1a03c991e7193fd779ef_720w.jpg)
 
 3.6 控制
 
@@ -161,7 +161,7 @@ OF：溢出标志。最近的操作导致一个补码溢出——正溢出或负
 
 除了图3-10中的指令会设置条件码，还有两类指令他们只设置条件码而不改变任何其他寄存器，如图3-13所示。
 
-![img](https://images.txserve.top/202206/images/v2-5a40e28c2e00935cf05f37a7a65b7bd8_720w.jpg)
+![img](https://images.txlink.top/202206/images/v2-5a40e28c2e00935cf05f37a7a65b7bd8_720w.jpg)
 
 3.6.2 访问条件码
 
@@ -175,13 +175,13 @@ OF：溢出标志。最近的操作导致一个补码溢出——正溢出或负
 
 对于第一种情况，图3-14描述的指令根据条件码的某种组合，将一个字节设置为0或者1，这类指令称为SET指令。
 
-![img](https://images.txserve.top/202206/images/v2-5a5724cde282bf482ca5496da1b7132b_720w.jpg)
+![img](https://images.txlink.top/202206/images/v2-5a5724cde282bf482ca5496da1b7132b_720w.jpg)
 
 3.6.3 跳转指令
 
 前面所述都是顺序指令， 跳转指令会导致执行切换到程序中一个全新的位置，在汇编代码种，这些跳转的目的地通常用一个标号（label）指明。
 
-![img](https://images.txserve.top/202206/images/v2-2e6e339c8f7e5da749ca5af07b136636_720w.jpg)
+![img](https://images.txlink.top/202206/images/v2-2e6e339c8f7e5da749ca5af07b136636_720w.jpg)
 
 3.6.4 跳转指令的编码
 
@@ -211,7 +211,7 @@ OF：溢出标志。最近的操作导致一个补码溢出——正溢出或负
 
 3.7.1 运行时栈
 
-![img](https://images.txserve.top/202206/images/v2-0f73e91cbda4374ec27227b3d287b8a1_720w.jpg)
+![img](https://images.txlink.top/202206/images/v2-0f73e91cbda4374ec27227b3d287b8a1_720w.jpg)
 
 gdb：
 
@@ -232,7 +232,7 @@ gdb：
 
 过程调用传递参数时，前6个参数放在寄存器中，之后的参数通过栈传递，在返回地址上方。
 
-![img](https://images.txserve.top/202206/images/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjY5ODg5MQ==,size_16,color_FFFFFF,t_70.png)
+![img](https://images.txlink.top/202206/images/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjY5ODg5MQ==,size_16,color_FFFFFF,t_70.png)
 
 局部存储：有时候，局部数据必须存放在内存中。
 

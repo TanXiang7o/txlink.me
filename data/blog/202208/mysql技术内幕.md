@@ -15,7 +15,7 @@ authors: ['default']
 
 ### 1.2、mysql体系结构
 
-![image-20221026160034310](https://images.txserve.top/202208/images/image-20221026160034310.png)
+![image-20221026160034310](https://images.txlink.top/202208/images/image-20221026160034310.png)
 
 区别于其他数据库，mysql的特点就是其插件式的表存储引擎。
 
@@ -81,7 +81,7 @@ InnoDB是基于磁盘存储的，由于磁盘速度和CPU速度相差很大，�
 
 修改页时，先修改在缓冲池中的页，再以一定的频率（checkpoint机制）刷新到磁盘上。
 
-![image-20221027164540308](https://images.txserve.top/202208/images/image-20221027164540308.png)
+![image-20221027164540308](https://images.txlink.top/202208/images/image-20221027164540308.png)
 
 `select pool_id,pool_size,free_buffers,database_pages from innodb_buffer_pool_stats;`查看缓冲池状态
 

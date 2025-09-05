@@ -20,9 +20,9 @@ authors: ['default']
 
 ## 测试
 未加速：
-![img](https://images.txserve.top/202408/images/2c20bd11-a368-496a-91a4-efe7e47e41f7.png)
+![img](https://images.txlink.top/202408/images/2c20bd11-a368-496a-91a4-efe7e47e41f7.png)
 
 加速后：
-![img](https://images.txserve.top/202408/images/a4609253-141e-44e9-9ce9-4ea698ef760f.png)
+![img](https://images.txlink.top/202408/images/a4609253-141e-44e9-9ce9-4ea698ef760f.png)
 
 貌似也就一般😂，没有项目里说的那么快，估计是用的人变多了

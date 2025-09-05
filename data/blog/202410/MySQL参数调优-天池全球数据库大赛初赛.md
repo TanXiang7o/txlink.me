@@ -48,7 +48,7 @@ authors: ['default']
 
 实际参数日志：
 
-![image-20241016152615508](https://images.txserve.top/202410/images/image-20241016152615508.png)
+![image-20241016152615508](https://images.txlink.top/202410/images/image-20241016152615508.png)
 
 后面应该就是调这些就可以。
 

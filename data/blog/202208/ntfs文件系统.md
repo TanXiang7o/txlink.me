@@ -9,9 +9,9 @@ authors: ['default']
 
 ### NTFS系统的总体结构
 
-![image-20230420184842652](https://images.txserve.top/202208/images/image-20230420184842652.png)
+![image-20230420184842652](https://images.txlink.top/202208/images/image-20230420184842652.png)
 
-![image-20230420184910417](https://images.txserve.top/202208/images/image-20230420184910417.png)
+![image-20230420184910417](https://images.txlink.top/202208/images/image-20230420184910417.png)
 
 ### 簇流运行的数据结构
 
@@ -25,10 +25,10 @@ authors: ['default']
   - 00000C 表示簇流的起始处是786432
   - 786432 + 64 = 786496是结束簇
 
-  ![image-20230505205936854](https://images.txserve.top/202208/images/image-20230505205936854.png)
+  ![image-20230505205936854](https://images.txlink.top/202208/images/image-20230505205936854.png)
 
-  ![image-20230505210133635](https://images.txserve.top/202208/images/image-20230505210133635.png)
+  ![image-20230505210133635](https://images.txlink.top/202208/images/image-20230505210133635.png)
 
-![image-20230505204402706](https://images.txserve.top/202208/images/image-20230505204402706.png)
+![image-20230505204402706](https://images.txlink.top/202208/images/image-20230505204402706.png)
 
-![image-20230505210650419](https://images.txserve.top/202208/images/image-20230505210650419.png)
+![image-20230505210650419](https://images.txlink.top/202208/images/image-20230505210650419.png)

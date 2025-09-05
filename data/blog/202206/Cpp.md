@@ -65,7 +65,7 @@ int main()
 
 ```
 
-![image-20221215175247689](https://images.txserve.top/202206/images/image-20221215175247689.png)
+![image-20221215175247689](https://images.txlink.top/202206/images/image-20221215175247689.png)
 
 解决办法：先`reserve`后每次push只拷贝一次。
 
@@ -108,7 +108,7 @@ int main()
 }
 ```
 
-![image-20221215175659784](https://images.txserve.top/202206/images/image-20221215175659784.png)
+![image-20221215175659784](https://images.txlink.top/202206/images/image-20221215175659784.png)
 
 更进一步：使用`emplace_back`
 
@@ -151,7 +151,7 @@ int main()
 }
 ```
 
-![image-20221215180005339](https://images.txserve.top/202206/images/image-20221215180005339.png)
+![image-20221215180005339](https://images.txlink.top/202206/images/image-20221215180005339.png)
 
 ## 预编译头文件
 
